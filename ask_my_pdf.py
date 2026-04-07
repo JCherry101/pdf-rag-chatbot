@@ -98,21 +98,22 @@ rag_chain = (
 print("--- RAG System Ready! ---")
 
 # --- 6. Interactive Q&A Loop ---
-while True:
-    try:
-        my_question = input("\n Ask a question about the document (or type 'exit'): ")
-        if my_question.lower() in ['exit', 'quit']:
-            break
-        if not my_question:
-            continue
+if __name__ == "__main__":
+    while True:
+        try:
+            my_question = input("\n Ask a question about the document (or type 'exit'): ")
+            if my_question.lower() in ['exit', 'quit']:
+                break
+            if not my_question:
+                continue
 
-        print(" Thinking...")
-        # Invoke the chain with the user's question
-        answer = rag_chain.invoke(my_question)
-        print("\n Answer:")
-        print(answer)
+            print(" Thinking...")
+            # Invoke the chain with the user's question
+            answer = rag_chain.invoke(my_question)
+            print("\n Answer:")
+            print(answer)
 
-    except Exception as e:
-        print(f"An error occurred during query: {e}")
+        except Exception as e:
+            print(f"An error occurred during query: {e}")
 
-print("\n Exiting RAG system.")
+    print("\n Exiting RAG system.")
